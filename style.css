@@ -1,0 +1,19 @@
+body {
+  overflow-x: hidden;
+}
+
+.hearts::before {
+  content: "💗 💕 💖 💞 💓";
+  position: fixed;
+  top: -10%;
+  width: 100%;
+  font-size: 2rem;
+  animation: fall 10s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(120vh);
+  }
+}
