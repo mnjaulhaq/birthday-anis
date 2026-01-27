@@ -62,7 +62,7 @@ function playMusic() {
 
 // 🔒 LOCK MODE (INI SAJA YANG KAMU UBAH NANTI)
 
-const LOCK_MODE = false; // true = terkunci | false = bebas
+const LOCK_MODE = true; // true = terkunci | false = bebas
 
 // OPENING
 function openSurprise() {
