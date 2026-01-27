@@ -1,65 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday Anis 💖</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday Anis 💖</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <link rel="stylesheet" href="style.css">
-</head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body class="bg-gradient-to-b from-pink-200 via-pink-100 to-pink-300 min-h-screen flex items-center justify-center px-4">
+  <body
+    class="bg-gradient-to-b from-pink-200 via-pink-100 to-pink-300 min-h-screen flex items-center justify-center px-4"
+  >
+    <audio id="music" loop>
+      <source src="music/romantis.m4a" type="audio/mpeg" />
+    </audio>
+    
 
-<audio id="music" loop>
-  <source src="music/romantis.mp3" type="audio/mpeg">
-</audio>
+    <div class="hearts"></div>
 
-<div class="hearts"></div>
+    <!-- OPENING -->
+    <div
+      id="opening"
+      class="fixed inset-0 bg-pink-400 flex flex-col items-center justify-center z-50 space-y-6 text-center px-4"
+    >
+      <!-- TULISAN COUNTDOWN -->
+      <p id="countdown" class="text-white text-xl font-bold"></p>
 
-<!-- OPENING -->
-<div id="opening" class="fixed inset-0 bg-pink-400 flex items-center justify-center z-50">
-  <button onclick="openSurprise()" class="px-10 py-4 bg-white text-pink-500 font-bold rounded-full shadow-xl animate-bounce">
-    Buka Kejutan 💝
-  </button>
-</div>
-
-<main class="max-w-md w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden">
-  <section class="bg-gradient-to-r from-pink-400 to-pink-600 p-6 text-center text-white">
-    <h1 class="text-3xl font-extrabold">🎂 Happy Birthday 🎂</h1>
-    <p class="text-xl font-semibold">Anis Muflikah</p>
-    <p class="text-sm">20 Tahun • 28 Januari</p>
-  </section>
-
-  <section class="p-6 space-y-6 text-center">
-    <p class="text-gray-700">
-      Hari ini dunia terasa lebih lembut, karena Anis lahir 💕
-    </p>
-
-    <div class="bg-pink-100 rounded-2xl p-4 shadow-inner">
-      <p id="countdown" class="text-xl font-bold text-pink-500"></p>
+      <!-- TOMBOL -->
+      <button
+        id="btnOpen"
+        onclick="openSurprise()"
+        class="px-10 py-4 bg-white text-pink-500 font-bold rounded-full shadow-xl animate-bounce"
+      >
+        Buka Kejutan 💝
+      </button>
     </div>
 
-    <div class="overflow-x-auto flex space-x-4 snap-x snap-mandatory py-2">
-      <img src="images/foto1.jpg" class="snap-center rounded-3xl shadow-lg w-64">
-      <img src="images/foto2.jpg" class="snap-center rounded-3xl shadow-lg w-64">
-      <img src="images/foto3.jpg" class="snap-center rounded-3xl shadow-lg w-64">
-    </div>
+    <main
+      class="max-w-md w-full bg-white rounded-[2.5rem] shadow-2xl overflow-hidden"
+    >
+      <section
+        class="bg-gradient-to-r from-pink-400 to-pink-600 p-6 text-center text-white"
+      >
+        <h1 class="text-3xl font-extrabold">🎂 Happy Birthday 🎂</h1>
+        <p class="text-xl font-semibold">Anis Muflikah</p>
+        <p class="text-sm">20 Tahun • 28 Januari</p>
+      </section>
 
-    <div class="bg-pink-50 rounded-2xl p-4">
-      <p class="text-pink-600 font-semibold">Seberapa sayang aku ke Anis? 💗</p>
-      <div class="w-full bg-pink-200 rounded-full h-3 mt-2">
-        <div id="loveBar" class="bg-pink-500 h-3 rounded-full w-0"></div>
-      </div>
-    </div>
+      <section class="p-6 space-y-6 text-center">
+        <p class="text-gray-700">
+          Hari ini dunia terasa lebih lembut, karena Anis lahir 💕
+        </p>
 
-    <a href="pin.html" class="block text-pink-600 font-bold underline">
-      Buka Pesan Rahasia 💌
-    </a>
-  </section>
-</main>
+        <!-- PESAN MENUNGGU (SAAT KEJUTAN TERKUNCI) -->
+        <div class="flex justify-center space-x-2 text-2xl animate-bounce">
+          💗 💕 💖
+        </div>
 
-<script src="script.js"></script>
-</body>
+        <div class="bg-pink-100 rounded-full h-2 overflow-hidden">
+          <div class="bg-pink-400 h-2 animate-pulse w-full"></div>
+        </div>
+
+        <div class="overflow-x-auto flex space-x-4 snap-x snap-mandatory py-2">
+          <img
+            src="images/foto1.jpeg"
+            class="snap-center rounded-3xl shadow-lg w-64"
+          />
+          <img
+            src="images/foto2.jpeg"
+            class="snap-center rounded-3xl shadow-lg w-64"
+          />
+          <img
+            src="images/foto3.jpeg"
+            class="snap-center rounded-3xl shadow-lg w-64"
+          />
+        </div>
+
+        <div class="bg-pink-50 rounded-2xl p-4">
+          <p class="text-pink-600 font-semibold">
+            Seberapa sayang aku ke Anis? 💗
+          </p>
+          <div class="w-full bg-pink-200 rounded-full h-3 mt-2">
+            <div id="loveBar" class="bg-pink-500 h-3 rounded-full w-0"></div>
+          </div>
+        </div>
+
+        <a href="pin.html" class="block text-pink-600 font-bold underline">
+          Buka Pesan Rahasia 💌
+        </a>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
 </html>

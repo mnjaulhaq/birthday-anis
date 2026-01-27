@@ -1,31 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Untuk Anis 💖</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Untuk Anis 💖</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-<body class="bg-gradient-to-br from-pink-300 to-pink-500 min-h-screen flex items-center justify-center px-4">
-  <div class="bg-white p-6 rounded-3xl shadow-2xl max-w-md w-full">
-    <p id="typing" class="text-gray-700 leading-relaxed"></p>
+  <body
+    class="bg-gradient-to-br from-pink-300 to-pink-500 min-h-screen flex items-center justify-center px-4"
+  >
+    <audio id="music" loop>
+      <source src="music/romantis.m4a" type="audio/mpeg" />
+    </audio>
+    <div class="bg-white p-6 rounded-3xl shadow-2xl max-w-md w-full">
+      <p id="typing" class="text-gray-700 leading-relaxed"></p>
 
-    <div class="mt-6 space-y-3">
-      <p class="text-center text-pink-500 font-semibold">
-        Will you stay with me? 💍
-      </p>
-      <div class="flex gap-4">
-        <button onclick="answer('yes')" class="flex-1 bg-pink-500 text-white py-2 rounded-full">
-          Iya 💖
-        </button>
-        <button onclick="answer('shy')" class="flex-1 bg-pink-300 text-white py-2 rounded-full">
-          Malu-malu 🙈
-        </button>
+      <div class="mt-6 space-y-3">
+        <p class="text-center text-pink-500 font-semibold">
+          Will you stay with me? 💍
+        </p>
+        <div class="flex gap-4">
+          <button
+            onclick="answer('yes')"
+            class="flex-1 bg-pink-500 text-white py-2 rounded-full"
+          >
+            Iya 💖
+          </button>
+          <button
+            onclick="answer('shy')"
+            class="flex-1 bg-pink-300 text-white py-2 rounded-full"
+          >
+            Malu-malu 🙈
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

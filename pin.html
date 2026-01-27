@@ -1,23 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pesan Rahasia 💌</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pesan Rahasia 💌</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-<body class="bg-gradient-to-br from-pink-300 to-pink-400 min-h-screen flex items-center justify-center px-4">
-  <div class="bg-white p-6 rounded-3xl shadow-2xl text-center max-w-sm w-full">
-    <h2 class="text-xl font-bold text-pink-500">Masukkan PIN 💗</h2>
-    <input id="pin" type="password" placeholder="••••••"
-      class="mt-4 p-3 border rounded-xl w-full text-center">
-    <button onclick="checkPin()"
-      class="mt-4 px-6 py-2 bg-pink-500 text-white rounded-full">
-      Buka
-    </button>
-  </div>
+  <body
+    class="bg-gradient-to-br from-pink-300 to-pink-400 min-h-screen flex items-center justify-center px-4"
+  >
+    <audio id="music" loop>
+      <source src="music/romantis.m4a" type="audio/mpeg" />
+    </audio>
+    <div
+      class="bg-white p-6 rounded-3xl shadow-2xl text-center max-w-sm w-full"
+    >
+      <h2 class="text-xl font-bold text-pink-500">Masukkan PIN 💗</h2>
+      <input
+        id="pin"
+        type="password"
+        placeholder="••••••"
+        class="mt-4 p-3 border rounded-xl w-full text-center"
+      />
+      <button
+        onclick="checkPin()"
+        class="mt-4 px-6 py-2 bg-pink-500 text-white rounded-full"
+      >
+        Buka
+      </button>
+    </div>
 
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
