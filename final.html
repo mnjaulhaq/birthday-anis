@@ -11,7 +11,7 @@
   <body
     class="bg-gradient-to-br from-pink-300 to-pink-500 min-h-screen flex items-center justify-center px-4"
   >
-    <audio id="music" loop>
+    <audio id="music" loop playsinline webkit-playsinline>
       <source src="music/romantis.m4a" type="audio/mpeg" />
     </audio>
     <div
@@ -43,7 +43,7 @@
       <div class="mt-6 bg-pink-50 rounded-2xl p-4">
         <p class="font-semibold text-pink-500 mb-2">Game kecil buat Anis 💗</p>
         <p id="score" class="text-sm mb-2 font-semibold text-pink-500">
-         SEBERAPA SAYANG ANIS KE JAUL : 0%
+          SEBERAPA SAYANG ANIS KE JAUL : 0%
         </p>
 
         <button onclick="tapLove()" class="text-3xl">💖</button>

@@ -1,3 +1,10 @@
+// Tambahkan event listener global untuk 'pancingan' di Safari
+document.body.addEventListener('click', () => {
+    const music = document.getElementById("music");
+    if (music && localStorage.getItem("musicPlaying") === "true" && music.paused) {
+        music.play();
+    }
+}, { once: true }); // Hanya berjalan sekali klik saja per halaman
 
 // ===== SISTEM MUSIK ANTI-RESET =====
 document.addEventListener("DOMContentLoaded", () => {
@@ -49,14 +56,18 @@ const LOCK_MODE = false; // true = terkunci | false = bebas
 
 // OPENING
 function openSurprise() {
-  document.getElementById("opening").style.display = "none";
-
   const music = document.getElementById("music");
+  
+  // Paksa play di sini, ini adalah momen interaksi pertama yang valid bagi Safari
   if (music) {
-    music.play();
-    localStorage.setItem("musicPlaying", "true"); // Tandai agar halaman selanjutnya otomatis play
+    music.play().then(() => {
+      localStorage.setItem("musicPlaying", "true");
+    }).catch(e => {
+      console.log("Safari memerlukan interaksi manual");
+    });
   }
 
+  document.getElementById("opening").style.display = "none";
   confetti({ particleCount: 200, spread: 100 });
 }
 
