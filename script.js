@@ -1,10 +1,18 @@
 // Tambahkan event listener global untuk 'pancingan' di Safari
-document.body.addEventListener('click', () => {
+document.body.addEventListener(
+  "click",
+  () => {
     const music = document.getElementById("music");
-    if (music && localStorage.getItem("musicPlaying") === "true" && music.paused) {
-        music.play();
+    if (
+      music &&
+      localStorage.getItem("musicPlaying") === "true" &&
+      music.paused
+    ) {
+      music.play();
     }
-}, { once: true }); // Hanya berjalan sekali klik saja per halaman
+  },
+  { once: true },
+); // Hanya berjalan sekali klik saja per halaman
 
 // ===== SISTEM MUSIK ANTI-RESET =====
 document.addEventListener("DOMContentLoaded", () => {
@@ -20,7 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2. Cek apakah sebelumnya sedang diputar
   if (localStorage.getItem("musicPlaying") === "true") {
     music.play().catch(() => {
-      console.log("Autoplay diblokir browser, musik akan jalan setelah interaksi pertama.");
+      console.log(
+        "Autoplay diblokir browser, musik akan jalan setelah interaksi pertama.",
+      );
     });
   }
 
@@ -43,34 +53,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Fungsi pembantu agar musik mulai jalan saat tombol pertama diklik
 function playMusic() {
-    const music = document.getElementById("music");
-    if (music) {
-        music.play();
-        localStorage.setItem("musicPlaying", "true");
-    }
+  const music = document.getElementById("music");
+  if (music) {
+    music.play();
+    localStorage.setItem("musicPlaying", "true");
+  }
 }
 
 // 🔒 LOCK MODE (INI SAJA YANG KAMU UBAH NANTI)
 
-const LOCK_MODE = true; // true = terkunci | false = bebas
+const LOCK_MODE = false; // true = terkunci | false = bebas
 
 // OPENING
 function openSurprise() {
   const music = document.getElementById("music");
-  
+
   // Paksa play di sini, ini adalah momen interaksi pertama yang valid bagi Safari
   if (music) {
-    music.play().then(() => {
-      localStorage.setItem("musicPlaying", "true");
-    }).catch(e => {
-      console.log("Safari memerlukan interaksi manual");
-    });
+    music
+      .play()
+      .then(() => {
+        localStorage.setItem("musicPlaying", "true");
+      })
+      .catch((e) => {
+        console.log("Safari memerlukan interaksi manual");
+      });
   }
 
   document.getElementById("opening").style.display = "none";
   confetti({ particleCount: 200, spread: 100 });
 }
-
 
 // COUNTDOWN WAKTU KEJUTAN (JAM : MENIT : DETIK)
 const cd = document.getElementById("countdown");
@@ -167,9 +179,25 @@ function answer(type) {
 // FINAL VIDEO
 function showVideo() {
   const video = document.getElementById("finalVideo");
+  const music = document.getElementById("music");
+
   if (video) {
+    // 1. Matikan musik latar agar suara video keluar
+    if (music) {
+      music.pause();
+      localStorage.setItem("musicPlaying", "false");
+    }
+
+    // 2. Munculkan video dan putar
     video.classList.remove("hidden");
-    video.play();
+    video.muted = false; // Memastikan video tidak ter-mute
+    video.volume = 1.0; // Volume penuh
+
+    video.play().catch((e) => {
+      console.log("Video perlu interaksi manual di Safari");
+    });
+
+    // 3. Efek selebrasi
     confetti({ particleCount: 400, spread: 150 });
   }
 }
